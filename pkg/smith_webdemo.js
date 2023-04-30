@@ -47,14 +47,8 @@ function takeObject(idx) {
 }
 /**
 */
-export function init() {
-    wasm.init();
-}
-
-/**
-*/
-export function greet() {
-    wasm.greet();
+export function wasminit() {
+    wasm.wasminit();
 }
 
 let WASM_VECTOR_LEN = 0;
@@ -219,9 +213,6 @@ async function load(module, imports) {
 function getImports() {
     const imports = {};
     imports.wbg = {};
-    imports.wbg.__wbg_alert_098013db8d794fc2 = function(arg0, arg1) {
-        alert(getStringFromWasm0(arg0, arg1));
-    };
     imports.wbg.__wbindgen_string_new = function(arg0, arg1) {
         const ret = getStringFromWasm0(arg0, arg1);
         return addHeapObject(ret);

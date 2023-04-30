@@ -12,18 +12,8 @@ use wasm_bindgen::prelude::*;
 static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
 
 #[wasm_bindgen(start)]
-pub fn init(){
+pub fn wasminit(){
     panic::set_hook(Box::new(console_error_panic_hook::hook));
-}
-
-#[wasm_bindgen]
-extern {
-    fn alert(s: &str);
-}
-
-#[wasm_bindgen]
-pub fn greet() {
-    alert("Hello, smith-webdemo!");
 }
 
 #[wasm_bindgen]
