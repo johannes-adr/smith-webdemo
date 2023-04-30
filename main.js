@@ -54,9 +54,17 @@ function createField(type){
 }
 
 function recompile(){
-    impsmap.setValue(show_imps_map(schemafield.el.value));
-    tscode.setValue(generate_ts(schema));
-    rustcode.setValue(generate_rust(schema));
+    schema = schemafield.el.innerText
+    try{
+        impsmap.setValue(show_imps_map(schema));
+        tscode.setValue(generate_ts(schema));
+        rustcode.setValue(generate_rust(schema));
+        /** @type {Error} */
+    }catch(e){
+        alert("An error occured while compiling the schema")
+        throw e;
+    }
+
     hljs.highlightAll({ ignoreUnescapedHTML: true });
 }
 
